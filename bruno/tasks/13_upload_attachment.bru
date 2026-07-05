@@ -1,0 +1,25 @@
+meta {
+  name: 13 Upload Attachment
+  type: http
+  seq: 13
+}
+
+post {
+  url: {{baseUrl}}/tasks/{{taskId}}/attachments
+  body: multipartForm
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:multipart-form {
+  file: @file(/path/to/your/file.pdf)
+}
+
+script:post-response {
+  if (res.status === 201) {
+    bru.setVar("attachmentId", res.body.data.id);
+  }
+}

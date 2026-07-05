@@ -1,0 +1,19 @@
+meta {
+  name: 04 Search Tasks
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/tasks
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+params:query {
+  search: login
+}

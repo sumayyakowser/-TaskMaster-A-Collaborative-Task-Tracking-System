@@ -1,0 +1,15 @@
+meta {
+  name: 11 Get Comments
+  type: http
+  seq: 11
+}
+
+get {
+  url: {{baseUrl}}/tasks/{{taskId}}/comments
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}

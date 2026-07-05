@@ -1,0 +1,21 @@
+meta {
+  name: 03 Filter Tasks by Status
+  type: http
+  seq: 3
+}
+
+get {
+  url: {{baseUrl}}/tasks
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+params:query {
+  status: OPEN
+  page: 1
+  limit: 10
+}

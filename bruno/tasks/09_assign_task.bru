@@ -1,0 +1,22 @@
+meta {
+  name: 09 Assign Task
+  type: http
+  seq: 9
+}
+
+post {
+  url: {{baseUrl}}/tasks/{{taskId}}/assign
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+body:json {
+  {
+    "assigneeId": "REPLACE_WITH_USER_ID",
+    "teamId": "REPLACE_WITH_TEAM_ID"
+  }
+}

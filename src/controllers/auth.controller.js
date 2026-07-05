@@ -1,7 +1,6 @@
 const bcrypt = require("bcrypt");
 const prisma = require("../config/prisma");
 const jwt = require("jsonwebtoken");
-const { ca } = require("zod/locales");
 
 const register = async (req, res) => {
     const { name, email, password } = req.body;
@@ -54,4 +53,10 @@ const login = async (req, res) => {
         res.status(500).json({ message: error.message, success: false });
     }
 };
-module.exports = { register, login };
+const logout = async (req, res) => {
+    return res.status(200).json({
+        success: true,
+        message: "Logout successful. Please remove the token from the client."
+    });
+};
+module.exports = { register, login, logout };

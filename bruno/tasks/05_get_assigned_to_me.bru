@@ -1,0 +1,19 @@
+meta {
+  name: 05 Get Tasks Assigned To Me
+  type: http
+  seq: 5
+}
+
+get {
+  url: {{baseUrl}}/tasks
+  body: none
+  auth: bearer
+}
+
+auth:bearer {
+  token: {{token}}
+}
+
+params:query {
+  assignedToMe: true
+}
